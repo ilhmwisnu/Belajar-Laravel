@@ -1,4 +1,4 @@
-@extends("layouts.main_layout")
+ @extends("layouts.main_layout")
 
 @section("container")
   <h1>Ini Blogs Page</h1>
