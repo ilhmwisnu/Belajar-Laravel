@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link {{ $title == "Blogs" ? "active" : "" }}" aria-current="page" href="/blogs">Blogs</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ $title == "Category" ? "active" : "" }}" aria-current="page" href="/category">Category</a>
+        </li>
       </ul>
     </div>
   </div>

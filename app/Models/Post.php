@@ -2,35 +2,25 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Post 
+class Post extends Model
 {
-    
-    private static $blogs = [
-        [
-            "title" => "Blog Satu",
-            "slug" => "blog-satu",
-            "author" => "Ilham",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eius libero odio sapiente iusto deserunt dolorem repudiandae ea, explicabo dolores provident aperiam ullam expedita, dolore eveniet, itaque ad nulla aliquid!" 
-        ],
-        [
-            "title" => "Blog Dua",
-            "slug" => "blog-dua",
-            "author" => "Wisnu",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio eius libero odio sapiente iusto deserunt dolorem repudiandae ea, explicabo dolores provident aperiam ullam expedita, dolore eveniet, itaque ad nulla aliquid!" 
-        ],
-        ];
+    use HasFactory;
 
-    public static function all() {
-        return collect(self::$blogs);
+    protected $fillable = [
+        "title",
+        "body",
+        "author",
+        "category_id",
+        "published_at",
+        "slug"
+    ];
+
+    public function category() : BelongsTo {
+        return $this->belongsTo(Category::class);
     }
-
-    public static function find($slug) {
-        $blogs = static::all();
-
-        return $blogs->firstWhere("slug", $slug);
-    }
-
-    
 
 }
