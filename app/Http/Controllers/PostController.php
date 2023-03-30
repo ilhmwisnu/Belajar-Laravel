@@ -11,14 +11,14 @@ class PostController extends Controller
     public function all(){
         return view('blogs', [
             "title" => "Blogs",
-            "blogs" =>  Post::all()
+            "blogs" =>  Post::with(["category","author"])->get()
         ]);
     }
 
     public function show(Post $post){
         return view('blog', [
             "title" => "Blog",
-            "blog" =>  $post
+            "blog" =>  $post->load("category", "author")
         ]);
     }
 
