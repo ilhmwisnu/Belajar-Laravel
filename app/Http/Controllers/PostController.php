@@ -9,9 +9,10 @@ class PostController extends Controller
 {
 
     public function all(){
+        $query = Post::latest();
         return view('blogs', [
             "title" => "Blogs",
-            "blogs" =>  Post::with(["category","author"])->get()
+            "blogs" =>  $query->filter(request(["search", "category", "author"]))->paginate(5)
         ]);
     }
 
