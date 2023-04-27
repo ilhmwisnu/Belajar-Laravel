@@ -13,7 +13,7 @@
         @endif
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Search.." value="{{ request("search") }}" name="search">
-          <button class="btn btn-outline-secondary bg-warning text-black-50" type="button" id="button-addon2">Go</button>
+          <button class="btn btn-outline-secondary bg-primary text-white" type="button" id="button-addon2">Go</button>
         </div>
       </form>
     </div>

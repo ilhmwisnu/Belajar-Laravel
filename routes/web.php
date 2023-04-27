@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('home', [
@@ -47,9 +51,10 @@ Route::get("/category/{category:slug}", function (Category $category){
     ]);
 });
 
-Route::get("/authors/{author:username}", function (User $author){
-    return view("blogs", [
-        "title" => $author->username,
-        "blogs" => $author->blogs->load("category", "author"),
-    ]);
-});
+Route::get("/login", [LoginController::class, "index"] );
+
+Route::post("/login", [LoginController::class, "login"]);
+
+Route::get("/register", [RegisterController::class, "index"]);
+
+Route::post("/register", [RegisterController::class, "store"]);

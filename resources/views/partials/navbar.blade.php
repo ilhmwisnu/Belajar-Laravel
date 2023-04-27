@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-warning">
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid text-white">
     <a class="navbar-brand font-weight-bolder" href="#">BLOK</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse " id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link {{ $title == "Home" ? "active" : "" }}" aria-current="page" href="/">Home</a>
@@ -19,6 +19,10 @@
           <a class="nav-link {{ $title == "Category" ? "active" : "" }}" aria-current="page" href="/category">Category</a>
         </li>
       </ul>
+
     </div>
+    @if ($title != "Login")
+      <a class="btn btn-primary" href="/login">Login</a>
+    @endif
   </div>
 </nav>
