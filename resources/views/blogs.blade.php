@@ -24,7 +24,7 @@
       <br>
       <h2> <a href="/blogs/{{ $blog->slug }}">{{ $blog->title }}</a>  </h2>
       <h6>Writed by : <a href="/blogs?author={{ $blog->author->username }}">{{ $blog->author->username }}</a> in <a href="/blogs?category={{ $blog->category->slug }}">{{ $blog->category->name }}</a></h6>
-      <p > {{ $blog->body }} </p>
+      <p > {!! $blog->body !!} </p>
       <br>
       <hr>
     </article>
@@ -36,5 +36,5 @@
   @endif
 
 
-  
+
 @endsection
